@@ -1,0 +1,178 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Gamer Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  🎮 Mobile Gamer Hub
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#games">Games</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home" class="hero">
+  <h1>Best Mobile Games</h1>
+  <p>Download high graphics games for free</p>
+  <button onclick="explore()">Explore Games</button>
+</section>
+
+<section id="games" class="games">
+
+  <div class="card">
+    <h3>Car Driving Simulator</h3>
+    <p>Realistic driving experience</p>
+    <button onclick="downloadGame('Car Driving Simulator')">Download</button>
+  </div>
+
+  <div class="card">
+    <h3>Flight Simulator</h3>
+    <p>Fly like a real pilot</p>
+    <button onclick="downloadGame('Flight Simulator')">Download</button>
+  </div>
+
+  <div class="card">
+    <h3>Open World Game</h3>
+    <p>GTA style adventure</p>
+    <button onclick="downloadGame('Open World Game')">Download</button>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: gamer@email.com</p>
+</section>
+
+<footer>
+  © 2026 Mobile Gamer Hub
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html><style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  color: cyan;
+  background: #020617;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: #020617;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  color: lime;
+}
+
+.hero button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Games */
+.games {
+  padding: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: cyan;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #020617;
+}</style><script>// Explore button scroll
+function explore() {
+  document.getElementById("games").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+// Download button action
+function downloadGame(gameName) {
+  alert("Downloading " + gameName + " 🚀");
+}
+
+// Smooth scroll for navbar
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    let target = document.querySelector(this.getAttribute("href"));
+    target.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+// Simple animation on scroll
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".card").forEach(card => {
+    let position = card.getBoundingClientRect().top;
+    let screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 50) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
+});</script>
